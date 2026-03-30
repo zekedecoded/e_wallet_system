@@ -1,4 +1,4 @@
-# 💳 GDJ E-Wallet System
+# 💳 GJC E-Wallet System
 
 <p align="center">
   <img src="https://img.shields.io/badge/Project-E--Wallet%20System-blue?style=for-the-badge" />
@@ -28,7 +28,7 @@ Database queries and scripts are maintained by **Jastine Manalastas**.
 
 ## 🖥️ Frontend Design
 
-The UI/UX design is spearheaded by **Michael Keith Banez**, focusing on a clean, accessible, and user-friendly interface tailored for the GDJ community.
+The UI/UX design is spearheaded by **Michael Keith Banez**, focusing on a clean, accessible, and user-friendly interface tailored for the GJC community.
 
 ---
 
