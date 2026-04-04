@@ -12,6 +12,7 @@ transaction_reference
 qr_code
 student_id
 balance
+last_updated
 role
 profile_img
 
@@ -29,6 +30,7 @@ course
 contact_number
 email
 balance
+last_updated
 role
 password
 profile_img
@@ -68,6 +70,7 @@ suffix
 contact_number
 email
 balance
+last_updated
 role
 password
 profile_img
@@ -114,10 +117,14 @@ middlename
 suffix
 contact_number
 email
-balance
 role_id (FK)
 password
 profile_img
+
+wallet_tbl
+user_id (FK)
+balance
+last_updated
 
 student_info
 student_info_id (PK)
@@ -135,6 +142,7 @@ transaction_tbl
 transaction_id (PK)
 user_id (FK)
 merchant_id (FK)
+wallet_id (FK)
 amount
 date_time
 description
@@ -151,7 +159,7 @@ created_at
 topup_tbl
 topup_id (PK)
 admin_id (FK)
-user_id (FK)
+wallet_id (FK)
 amount
 remarks
 date_time
