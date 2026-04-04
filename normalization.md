@@ -7,7 +7,7 @@ contact_number
 email
 transaction_amount
 transaction_date_time
-transacation_discription
+transaction_description
 transaction_reference
 qr_code
 student_id
