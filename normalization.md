@@ -122,6 +122,7 @@ password
 profile_img
 
 wallet_tbl
+wallet_id (PK)
 user_id (FK)
 balance
 last_updated
@@ -140,7 +141,6 @@ stall_name
 
 transaction_tbl
 transaction_id (PK)
-user_id (FK)
 merchant_id (FK)
 wallet_id (FK)
 amount
