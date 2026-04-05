@@ -1,127 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GJC EduPay - Admin Dashboard</title>
     <link href="../../Css/bootstrap.min.css" rel="stylesheet">
     <link href="../../Css/style.css" rel="stylesheet">
+    <link href="../../Css/admin.css" rel="stylesheet">
 </head>
 
-<?php include 'header.php'; ?>
+<body class="admin-body">
 
-<div class="BodyBGfullview2 min-vh-100 pt-3">
-    <div class="container">
+    <div class="admin-header-wrap">
+        <?php include 'header.php'; ?>
+    </div>
 
-        <!-- Tab Navigation -->
-        <div class="row g-0 mb-3">
-            <div class="col-4">
-                <a href="admin.php" class="btn btn-light w-100 fw-bold text-uppercase rounded-0 border text-success">
-                    Dashboard
-                </a>
-            </div>
-            <div class="col-4">
-                <a href="admin_actions.php"
-                    class="btn btn-light w-100 fw-bold text-uppercase rounded-0 border text-success">
-                    Actions
-                </a>
-            </div>
-            <div class="col-4">
-                <a href="admin_transactions.php"
-                    class="btn btn-light w-100 fw-bold text-uppercase rounded-0 border text-success">
-                    Transactions
-                </a>
-            </div>
-        </div>
+    <div class="admin-wrapper">
+        <div class="container admin-container">
 
-        <div class="card carDbg border-0 rounded-3 p-3">
+            <div class="admin-top-row">
+                <div class="admin-title-group">
+                    <span class="admin-section-badge">ADMIN PANEL</span>
+                    <h1 class="admin-page-title">Admin Dashboard</h1>
+                    <p class="admin-page-subtitle">System overview and recent transactions</p>
+                </div>
 
-
-            <p class="text-white fw-bold text-uppercase text-center mb-3">Admin Dashboard</p>
-
-
-            <p class="text-white fw-semibold text-uppercase small mb-1">Student -</p>
-            <div class="card border-0 rounded-3 mb-3">
-                <div class="card-body py-2 text-center fw-bold text-success">
-                    10
+                <div class="admin-top-actions">
+                    <div class="admin-date-chip">APR 04, 2026</div>
+                    <a href="../index.php" class="admin-logout-top-btn">Logout</a>
                 </div>
             </div>
 
+            <div class="row g-4 admin-stats-row">
+                <div class="col-md-6 col-xl-3">
+                    <div class="admin-stat-card stat-green">
+                        <div class="admin-stat-icon">🎓</div>
+                        <div class="admin-stat-number">10</div>
+                        <div class="admin-stat-label">Students</div>
+                    </div>
+                </div>
 
-            <p class="text-white fw-semibold text-uppercase small mb-1">Merchant</p>
-            <div class="card border-0 rounded-3 mb-3">
-                <div class="card-body py-2 text-center fw-bold text-success">
-                    10
+                <div class="col-md-6 col-xl-3">
+                    <div class="admin-stat-card stat-yellow">
+                        <div class="admin-stat-icon">🏪</div>
+                        <div class="admin-stat-number">10</div>
+                        <div class="admin-stat-label">Merchant</div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-xl-3">
+                    <div class="admin-stat-card stat-blue">
+                        <div class="admin-stat-icon">🧾</div>
+                        <div class="admin-stat-number">10</div>
+                        <div class="admin-stat-label">Transactions</div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-xl-3">
+                    <div class="admin-stat-card stat-orange">
+                        <div class="admin-stat-icon">💵</div>
+                        <div class="admin-stat-number">₱10</div>
+                        <div class="admin-stat-label">Today's Volume</div>
+                    </div>
                 </div>
             </div>
 
+            <div class="row g-3 admin-tabs-row">
+                <div class="col-md-4">
+                    <a href="admin.php" class="admin-tab-card active-tab">
+                        <span class="tab-title">Dashboard</span>
+                        <span class="tab-desc">Overview of admin data</span>
+                    </a>
+                </div>
 
-            <p class="text-white fw-semibold text-uppercase small mb-1">Transactions</p>
-            <div class="card border-0 rounded-3 mb-3">
-                <div class="card-body py-2 text-center fw-bold text-success">
-                    10
+                <div class="col-md-4">
+                    <a href="admin_actions.php" class="admin-tab-card">
+                        <span class="tab-title">Actions</span>
+                        <span class="tab-desc">Manage admin processes</span>
+                    </a>
+                </div>
+
+                <div class="col-md-4">
+                    <a href="admin_transactions.php" class="admin-tab-card">
+                        <span class="tab-title">Transactions</span>
+                        <span class="tab-desc">View transaction records</span>
+                    </a>
                 </div>
             </div>
 
-            <p class="text-white fw-semibold text-uppercase small mb-1">Todays Volume</p>
-            <div class="card border-0 rounded-3 mb-3">
-                <div class="card-body py-2 text-center fw-bold text-success">
-                    10
-                </div>
-            </div>
-
-
-            <div class="card border-0 rounded-3 mb-3">
-                <div class="card-body py-4">
-                    <p class="fw-bold text-uppercase text-center text-success mb-0">Recent Transactions</p>
-                </div>
-
-                <di>
-                    <div class="textcolorgreen">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th scope="col">TYPE</th>
-                                    <th scope="col">DATE</th>
-                                    <th scope="col">TO</th>
-                                    <th scope="col">FROM</th>
-                                    <th scope="col">AMOUNT</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr class="table-active">
-                                    <th scope="row">PAY</th>
-                                    <td>4/4/2025</td>
-                                    <td>Otto</td>
-                                    <td>Michael</td>
-                                    <td>₱50</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">PAY</th>
-                                    <td>4/5/2025</td>
-                                    <td>Thornton</td>
-                                    <td>Michael</td>
-                                    <td>₱100</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">CASH IN</th>
-                                    <td>4/3/2025</td>
-                                    <td>Michael</td>
-                                    <td>ADMIN</td>
-                                    <td>₱5,000</td>
-                                </tr>
-                            </tbody>
-                        </table>
+            <div class="admin-table-shell">
+                <div class="admin-table-head">
+                    <div>
+                        <h3 class="admin-table-title">Recent Transactions</h3>
+                        <p class="admin-table-subtitle">Latest payment and cash-in records</p>
                     </div>
 
+                    <a href="admin_transactions.php" class="admin-see-all-btn">See All</a>
+                </div>
 
-                </di>
+                <div class="table-responsive">
+                    <table class="table admin-transaction-table align-middle mb-0">
+                        <thead>
+                            <tr>
+                                <th>Type</th>
+                                <th>Date</th>
+                                <th>To</th>
+                                <th>From</th>
+                                <th>Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="transaction-pill pay-pill">PAY</span></td>
+                                <td>4/4/2025</td>
+                                <td>Otto</td>
+                                <td>Michael</td>
+                                <td class="amount-cell">₱50</td>
+                            </tr>
+                            <tr>
+                                <td><span class="transaction-pill pay-pill">PAY</span></td>
+                                <td>4/5/2025</td>
+                                <td>Thornton</td>
+                                <td>Michael</td>
+                                <td class="amount-cell">₱100</td>
+                            </tr>
+                            <tr>
+                                <td><span class="transaction-pill cashin-pill">CASH IN</span></td>
+                                <td>4/3/2025</td>
+                                <td>Michael</td>
+                                <td>ADMIN</td>
+                                <td class="amount-cell">₱5,000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
 
         </div>
-
-        <!-- Log Out -->
-        <div class="pt-4 pb-4">
-            <a href="../index.php" class="btn btn-light w-100 fw-bold text-uppercase py-3 text-success">
-                Log Out
-            </a>
-        </div>
-
     </div>
-</div>
+
+</body>
+
+</html>

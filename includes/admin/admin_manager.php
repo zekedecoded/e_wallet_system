@@ -1,113 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GJC EduPay - Manage Users</title>
     <link href="../../Css/bootstrap.min.css" rel="stylesheet">
     <link href="../../Css/style.css" rel="stylesheet">
+    <link href="../../Css/admin.css" rel="stylesheet">
 </head>
 
-<body class="BodyBGfullview">
+<body class="admin-body">
 
-    <!-- Header -->
-    <div class="card carDbg">
-        <div class="card-body">
-            <div class="row">
-                <div class="col-12 textcolor">
-                    <p class="mb-0">General De Jesus College Online Payment System</p>
+    <?php include 'header.php'; ?>
+
+    <div class="admin-wrapper">
+        <div class="container admin-container">
+
+            <!-- TOP -->
+            <div class="admin-top-row">
+                <div class="admin-title-group">
+                    <h1 class="admin-page-title">Manage Users</h1>
+                    <p class="admin-page-subtitle">View and manage all users</p>
+                </div>
+
+                <div class="admin-top-actions">
+                    <div class="admin-date-chip">APR 04, 2026</div>
+                    <a href="../index.php" class="admin-logout-top-btn">Logout</a>
                 </div>
             </div>
-        </div>
-    </div>
 
-    <!-- Main Content -->
-    <div class="container pt-5 pb-5">
-        <div class="card">
-            <div class="card-body">
-                <h2 class="textcolorgreen">USERS</h2>
+            <!-- TABS -->
+            <div class="row g-3 admin-tabs-row">
+                <div class="col-md-4">
+                    <a href="admin.php" class="admin-tab-card">
+                        <span class="tab-title">Dashboard</span>
+                        <span class="tab-desc">Overview of admin data</span>
+                    </a>
+                </div>
+
+                <div class="col-md-4">
+                    <a href="admin_actions.php" class="admin-tab-card active-tab">
+                        <span class="tab-title">Actions</span>
+                        <span class="tab-desc">Manage admin processes</span>
+                    </a>
+                </div>
+
+                <div class="col-md-4">
+                    <a href="admin_transactions.php" class="admin-tab-card">
+                        <span class="tab-title">Transactions</span>
+                        <span class="tab-desc">View transaction records</span>
+                    </a>
+                </div>
             </div>
 
-            <div class="px-4 pb-4">
-                <form>
-                    <!-- Student Users -->
-                    <h4 class="textcolorgreen fw-bold text-uppercase mb-3">Student Users</h4>
-                    <div class="table-responsive mb-5">
-                        <table class="table table-bordered">
-                            <thead>
-                                <tr>
-                                    <th scope="col" class="textcolorgreen">#</th>
-                                    <th scope="col" class="textcolorgreen">Name</th>
-                                    <th scope="col" class="textcolorgreen">Year Level & Program</th>
-                                    <th scope="col" class="textcolorgreen">Email</th>
-                                    <th scope="col" class="textcolorgreen">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Ezekiel Clarence Santiago</td>
-                                    <td>3rd Year — Computer Science</td>
-                                    <td>ezekiel.santiago@example.com</td>
-                                    <td>
-                                        <div class="d-flex gap-2">
-                                            <a href="admin_view_student_info.php"
-                                                class="btn btn-success btn-sm textcolorgreen">
-                                                View
-                                            </a>
-                                            <a href="#" class="btn btn-danger btn-sm textcolorred">
-                                                Delete
-                                            </a>
-                                        </div>
-                                    </td>
-                                </tr>
+            <!-- CONTENT -->
+            <div class="admin-table-shell">
 
-                            </tbody>
-                        </table>
+                <!-- STUDENTS -->
+                <div class="admin-table-head">
+                    <div>
+                        <h3 class="admin-table-title">Student Users</h3>
+                        <p class="admin-table-subtitle">List of all registered students</p>
                     </div>
+                </div>
 
-                    <!-- Store Users -->
-                    <h4 class="textcolorgreen fw-bold text-uppercase mb-3">Store Users</h4>
-                    <div class="table-responsive">
-                        <table class="table table-bordered">
-                            <thead>
-                                <tr>
-                                    <th scope="col" class="textcolorgreen">#</th>
-                                    <th scope="col" class="textcolorgreen">Name</th>
-                                    <th scope="col" class="textcolorgreen">Store Name</th>
-                                    <th scope="col" class="textcolorgreen">Email</th>
-                                    <th scope="col" class="textcolorgreen">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Mark Otto</td>
-                                    <td>Otto's Burger Shop</td>
-                                    <td>mark.otto@example.com</td>
-                                    <td>
-                                        <div class="d-flex gap-2">
-                                            <a href="admin_view_store_info.php"
-                                                class="btn btn-success btn-sm textcolorgreen">
-                                                View
-                                            </a>
-                                            <a href="#" class="btn btn-danger btn-sm textcolorred">
-                                                Delete
-                                            </a>
-                                        </div>
-                                    </td>
-                                </tr>
+                <div class="table-responsive mb-5">
+                    <table class="table admin-transaction-table align-middle mb-0">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Name</th>
+                                <th>Year Level & Program</th>
+                                <th>Email</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Ezekiel Clarence Santiago</td>
+                                <td>3rd Year — Computer Science</td>
+                                <td>ezekiel.santiago@example.com</td>
+                                <td>
+                                    <div class="d-flex gap-2">
+                                        <a href="admin_view_student_info.php" class="admin-view-btn">
+                                            View
+                                        </a>
+                                        <a href="admin_topup_wallet.php" class="admin-topup-btn">
+                                            Top-up
+                                        </a>
+                                        <a href="#" class="admin-delete-btn">
+                                            Delete
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
 
-                            </tbody>
-                        </table>
+                <!-- STORES -->
+                <div class="admin-table-head">
+                    <div>
+                        <h3 class="admin-table-title">Store Users</h3>
+                        <p class="admin-table-subtitle">List of all registered merchants</p>
                     </div>
-                </form>
-            </div>
+                </div>
 
-            <!-- Back Button -->
-            <div class="px-4 pb-4">
-                <a href="admin_actions.php" class="text-decoration-none textcolorgreen btn BtN">
-                    Back
-                </a>
+                <div class="table-responsive">
+                    <table class="table admin-transaction-table align-middle mb-0">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Name</th>
+                                <th>Store Name</th>
+                                <th>Email</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Mark Otto</td>
+                                <td>Otto's Burger Shop</td>
+                                <td>mark.otto@example.com</td>
+                                <td>
+                                    <div class="d-flex gap-2">
+                                        <a href="admin_view_store_info.php" class="admin-view-btn">
+                                            View
+                                        </a>
+                                        <a href="admin_topup_store_wallet.php" class="admin-topup-btn">
+                                            Top-up
+                                        </a>
+                                        <a href="#" class="admin-delete-btn">
+                                            Delete
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- BACK -->
+                <div class="mt-4">
+                    <a href="admin_actions.php" class="admin-back-btn">Back</a>
+                </div>
+
             </div>
 
         </div>
     </div>
 
 </body>
+
+</html>

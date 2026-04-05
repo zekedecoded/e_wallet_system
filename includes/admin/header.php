@@ -1,20 +1,13 @@
-<div class="BodyBGfullview2">
-    <div class="card carDbg">
-        <div class="card-body ">
-            <div class="row">
-                <!--HEADER-->
-                <div class="col-12 col textcolor">
-                    <p>General De Jesus College Online Payment System</p>
-                </div>
-            </div>
-        </div>
+<div class="admin-navbar">
+    <div class="admin-nav-left">
+        <span class="admin-logo">GJC</span>
+        <span class="admin-title">EduPay Admin</span>
     </div>
 
-    <!--     <div class="col-12 col-sm-6">
-            <div class="fonts ms-5 pt-5">
-                            <img src="../../imgicon/instagram.png" class="schoollogo" alt="If no img change directory">
-            </div>
-        </div>
--->
-</div>
+    <div class="admin-nav-right">
+        <a href="admin.php" class="nav-link">Dashboard</a>
+        <a href="admin_actions.php" class="nav-link">Actions</a>
+        <a href="admin_transactions.php" class="nav-link">Transactions</a>
+        <a href="../index.php" class="nav-logout">Logout</a>
+    </div>
 </div>

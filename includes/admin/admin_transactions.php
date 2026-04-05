@@ -1,78 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GJC EduPay - Transactions</title>
     <link href="../../Css/bootstrap.min.css" rel="stylesheet">
     <link href="../../Css/style.css" rel="stylesheet">
+    <link href="../../Css/admin.css" rel="stylesheet">
 </head>
 
-<body class="BodyBGfullview">
+<body class="admin-body">
 
-    <div>
-        <div class="card carDbg">
-            <div class="card-body ">
-                <div class="row">
-                    <!--HEADER-->
-                    <div class="col-12 col textcolor">
-                        <p>General De Jesus College Online Payment System</p>
-                    </div>
+    <!-- NAVBAR -->
+    <?php include 'header.php'; ?>
+
+    <div class="admin-wrapper">
+        <div class="container admin-container">
+
+            <!-- TOP -->
+            <div class="admin-top-row">
+                <div class="admin-title-group">
+                    <h1 class="admin-page-title">Transactions</h1>
+                    <p class="admin-page-subtitle">View all transaction records</p>
+                </div>
+
+                <div class="admin-top-actions">
+                    <div class="admin-date-chip">APR 04, 2026</div>
+                    <a href="../index.php" class="admin-logout-top-btn">Logout</a>
                 </div>
             </div>
-        </div>
 
-        <div>
-            <div class="container pt-5 ">
-                <div class="card ">
-                    <div class="card-body ">
-                        <h2 class="textcolorgreen">TRANSACTION HISTORY</h2>
-                    </div>
+            <!-- TABS -->
+            <div class="row g-3 admin-tabs-row">
+                <div class="col-md-4">
+                    <a href="admin.php" class="admin-tab-card">
+                        <span class="tab-title">Dashboard</span>
+                        <span class="tab-desc">Overview of admin data</span>
+                    </a>
+                </div>
 
+                <div class="col-md-4">
+                    <a href="admin_actions.php" class="admin-tab-card">
+                        <span class="tab-title">Actions</span>
+                        <span class="tab-desc">Manage admin processes</span>
+                    </a>
+                </div>
 
-                    <div class="textcolorgreen">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th scope="col">TYPE</th>
-                                    <th scope="col">DATE</th>
-                                    <th scope="col">TO/FROM</th>
-                                    <th scope="col">AMOUNT</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr class="table-active">
-                                    <th scope="row">PAY</th>
-                                    <td>4/4/2025</td>
-                                    <td>Otto</td>
-                                    <td>₱50</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">PAY</th>
-                                    <td>4/5/2025</td>
-                                    <td>Thornton</td>
-                                    <td>₱100</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">CASH IN</th>
-                                    <td>4/3/2025</td>
-                                    <td>ADMIN</td>
-                                    <td>₱5,000</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
-
-
-
-                    <!--back button-->
-                    <div class="col-12 col-sm-6 pt-4">
-                        <a href="admin.php" class="text-decoration-none textcolorgreen btn BtN">
-                            Back
-                        </a>
-                    </div>
-
+                <div class="col-md-4">
+                    <a href="admin_transactions.php" class="admin-tab-card active-tab">
+                        <span class="tab-title">Transactions</span>
+                        <span class="tab-desc">View transaction records</span>
+                    </a>
                 </div>
             </div>
+
+            <!-- TABLE -->
+            <div class="admin-table-shell">
+                <div class="admin-table-head">
+                    <div>
+                        <h3 class="admin-table-title">Transaction History</h3>
+                        <p class="admin-table-subtitle">All payment and cash-in activities</p>
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table admin-transaction-table align-middle mb-0">
+                        <thead>
+                            <tr>
+                                <th>Type</th>
+                                <th>Date</th>
+                                <th>To / From</th>
+                                <th>Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="transaction-pill pay-pill">PAY</span></td>
+                                <td>4/4/2025</td>
+                                <td>Otto</td>
+                                <td class="amount-cell">₱50</td>
+                            </tr>
+                            <tr>
+                                <td><span class="transaction-pill pay-pill">PAY</span></td>
+                                <td>4/5/2025</td>
+                                <td>Thornton</td>
+                                <td class="amount-cell">₱100</td>
+                            </tr>
+                            <tr>
+                                <td><span class="transaction-pill cashin-pill">CASH IN</span></td>
+                                <td>4/3/2025</td>
+                                <td>ADMIN</td>
+                                <td class="amount-cell">₱5,000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- BACK -->
+                <div class="mt-4">
+                    <a href="admin.php" class="admin-back-btn">Back to Dashboard</a>
+                </div>
+
+            </div>
+
         </div>
-
-
+    </div>
 
 </body>
+
+</html>
