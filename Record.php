@@ -60,6 +60,7 @@ class Wallet
         if (isset($_POST['Add'])) {
             $this->getPost();
 
+            // Insert into users first — balance starts at 0, roleID 1 = student
             $stmt = $this->con->prepare(
                 'INSERT INTO users (last_name, first_name, middle_name, suffix, contact_number, email, balance, roleID, password, profile_img)
                  VALUES (?, ?, ?, ?, ?, ?, 0, 1, "", "")',
@@ -91,6 +92,7 @@ class Wallet
         if (isset($_POST['AddMerchant'])) {
             $this->getMerchantPost();
 
+            // Insert into users — roleID 2 = merchant
             $stmt = $this->con->prepare(
                 'INSERT INTO users (last_name, first_name, middle_name, suffix, contact_number, email, balance, roleID, password, profile_img)
                  VALUES (?, ?, ?, ?, ?, ?, 0, 2, "", "")',
@@ -119,6 +121,7 @@ class Wallet
     // Delete Function
     public function delete($userID)
     {
+        // Delete student_info first to avoid FK constraint error
         $stmt = $this->con->prepare(
             'DELETE FROM student_info WHERE userID = ?',
         );
@@ -147,6 +150,7 @@ class Wallet
                 $userID,
             ]);
 
+            // Update student_info separately — yr_lvl and courseID live there
             $stmt2 = $this->con->prepare(
                 'UPDATE student_info SET yr_lvl = ?, courseID = ? WHERE userID = ?',
             );
@@ -175,6 +179,7 @@ class Wallet
                 $userID,
             ]);
 
+            // Update stall_name in merchant table
             $stmt2 = $this->con->prepare(
                 'UPDATE merchant SET stall_name = ? WHERE userID = ?',
             );
@@ -220,6 +225,7 @@ class Wallet
 
     public function getAll()
     {
+        // Only fetch students (roleID = 1)
         $stmt = $this->con->prepare(
             'SELECT u.*,
                     COALESCE(s.yr_lvl, "N/A") AS yr_lvl,
@@ -237,6 +243,7 @@ class Wallet
         return $stmt->fetchAll();
     }
 
+    // Fetch all merchants for the Store Users table
     public function getMerchants()
     {
         $stmt = $this->con->prepare(
@@ -252,6 +259,7 @@ class Wallet
         return $stmt->fetchAll();
     }
 
+    // Fetch all courses for the Program dropdown
     public function getCourses()
     {
         $stmt = $this->con->prepare('SELECT * FROM course');
