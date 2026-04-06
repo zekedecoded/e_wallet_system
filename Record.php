@@ -85,7 +85,7 @@ class Wallet
         }
     }
 
-    // adding merchant
+    // ADDING MERCHANT FUNCTION
     public function AddMerchant()
     {
         if (isset($_POST['AddMerchant'])) {
@@ -157,6 +157,7 @@ class Wallet
         }
     }
 
+    // Edit Merchant Function
     public function editMerchant($userID)
     {
         $this->getMerchantPost();
@@ -184,6 +185,7 @@ class Wallet
         }
     }
 
+    // View single student profile
     public function view($userID)
     {
         if (!$userID) {
@@ -200,7 +202,7 @@ class Wallet
         return $stmt->rowCount() ? $stmt->fetch() : 0;
     }
 
-    // View single merchant
+    // View single merchant profile
     public function viewMerchant($userID)
     {
         if (!$userID) {
