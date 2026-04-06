@@ -179,7 +179,14 @@ class Wallet
                 $userID,
             ]);
 
+<<<<<<< HEAD
             // Update stall_name in merchant table
+=======
+<<<<<<< HEAD
+            // Update stall_name in merchant table
+=======
+>>>>>>> 146fe82384c7910cfad88847cacc339c23b448b5
+>>>>>>> 02e9bfb28fa5c6d02b7a0037b206242466ca742c
             $stmt2 = $this->con->prepare(
                 'UPDATE merchant SET stall_name = ? WHERE userID = ?',
             );

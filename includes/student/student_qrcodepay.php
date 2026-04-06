@@ -57,14 +57,44 @@
     document.addEventListener('DOMContentLoaded', () => {
     const manualInput = document.querySelector('.student-form-input');
     const confirmBtn = document.querySelector('.student-submit-btn');
+<<<<<<< HEAD
+
+    const html5QrCode = new Html5Qrcode("qr-reader");
+
+    function onScanSuccess(decodedText){
+=======
     const html5QrCode = new Html5Qrcode("qr-reader");
 
     function onScanSuccess(decodedText) {
+>>>>>>> 146fe82384c7910cfad88847cacc339c23b448b5
         sendQR(decodedText);
         html5QrCode.stop();
     }
 
     Html5Qrcode.getCameras().then(cameras => {
+<<<<<<< HEAD
+        if(cameras.length){
+            html5QrCode.start(cameras[0].id, {fps:10, qrbox:250}, onScanSuccess);
+        } else alert("No camera found");
+    }).catch(err => console.log(err));
+
+    confirmBtn.addEventListener('click', () => {
+        const code = manualInput.value.trim();
+        if(!code) return alert("Enter QR code");
+        sendQR(code);
+    });
+
+    function sendQR(qrToken){
+        fetch("student_scanqr.php", {
+            method: "POST",
+            headers: {"Content-Type":"application/x-www-form-urlencoded"},
+            body: "qr_token=" + encodeURIComponent(qrToken)
+        })
+        .then(res => res.json()) // parse JSON automatically
+        .then(data => {
+            console.log(data); // for debugging
+            if(data.status === "success"){
+=======
         if (cameras.length === 0) {
             alert("No camera found");
             return;
@@ -109,6 +139,7 @@
         .then(data => {
             console.log(data);
             if (data.status === "success") {
+>>>>>>> 146fe82384c7910cfad88847cacc339c23b448b5
                 alert(`Paid ${data.desc} - ₱${data.amount}\nNew balance: ₱${data.new_balance}`);
                 location.reload();
             } else {
