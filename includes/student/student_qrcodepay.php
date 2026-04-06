@@ -57,15 +57,22 @@
     document.addEventListener('DOMContentLoaded', () => {
     const manualInput = document.querySelector('.student-form-input');
     const confirmBtn = document.querySelector('.student-submit-btn');
+<<<<<<< HEAD
 
     const html5QrCode = new Html5Qrcode("qr-reader");
 
     function onScanSuccess(decodedText){
+=======
+    const html5QrCode = new Html5Qrcode("qr-reader");
+
+    function onScanSuccess(decodedText) {
+>>>>>>> 146fe82384c7910cfad88847cacc339c23b448b5
         sendQR(decodedText);
         html5QrCode.stop();
     }
 
     Html5Qrcode.getCameras().then(cameras => {
+<<<<<<< HEAD
         if(cameras.length){
             html5QrCode.start(cameras[0].id, {fps:10, qrbox:250}, onScanSuccess);
         } else alert("No camera found");
@@ -87,6 +94,52 @@
         .then(data => {
             console.log(data); // for debugging
             if(data.status === "success"){
+=======
+        if (cameras.length === 0) {
+            alert("No camera found");
+            return;
+        }
+
+        const backCamera = cameras.find(c =>
+            c.label.toLowerCase().includes('back') ||
+            c.label.toLowerCase().includes('rear') ||
+            c.label.toLowerCase().includes('environment')
+        );
+
+        const selectedCamera = backCamera || cameras[cameras.length - 1];
+
+        console.log("Using camera:", selectedCamera.label, selectedCamera.id);
+
+        html5QrCode.start(
+            selectedCamera.id,
+            { fps: 10, qrbox: { width: 250, height: 250 } },
+            onScanSuccess
+        ).catch(err => {
+            console.error("Camera start failed:", err);
+            alert("Could not start camera: " + err);
+        });
+    }).catch(err => {
+        console.error("getCameras failed:", err);
+        alert("Camera access denied. Please allow camera permission.");
+    });
+
+    confirmBtn.addEventListener('click', () => {
+        const code = manualInput.value.trim();
+        if (!code) return alert("Enter QR code");
+        sendQR(code);
+    });
+
+    function sendQR(qrToken) {
+        fetch("student_scanqr.php", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: "qr_token=" + encodeURIComponent(qrToken)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data); // Debugging
+            if (data.status === "success") {
+>>>>>>> 146fe82384c7910cfad88847cacc339c23b448b5
                 alert(`Paid ${data.desc} - ₱${data.amount}\nNew balance: ₱${data.new_balance}`);
                 location.reload();
             } else {
